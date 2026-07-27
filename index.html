@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abasto La Fortaleza — Tu mercado de confianza en San Agustín del Sur</title>
+  <meta name="description" content="Charcutería, víveres y bebidas en San Agustín del Sur, Caracas. Pedidos por WhatsApp. Pagos: Efectivo, Pago Móvil, Zelle." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header" id="header">
+    <div class="header-inner">
+      <a href="#inicio" class="logo">
+        <span class="logo-icon">🏪</span>
+        <span class="logo-text">La Fortaleza</span>
+      </a>
+      <nav class="nav" id="nav">
+        <a href="#productos" class="nav-link">Productos</a>
+        <a href="#mercado" class="nav-link">Mercado Semanal</a>
+        <a href="#nosotros" class="nav-link">Nosotros</a>
+        <a href="#contacto" class="nav-link">Contacto</a>
+      </nav>
+      <button class="btn-pedido" id="btn-abrir-carrito">🛒 Hacer Pedido</button>
+      <button class="hamburger" id="hamburger" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="inicio">
+    <div class="hero-bg-shape"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">📍 San Agustín del Sur, Caracas</div>
+      <h1 class="hero-title">Tu abasto<br><em>de confianza</em></h1>
+      <p class="hero-sub">Charcutería, víveres y bebidas. Todo lo que tu familia necesita, con la atención de siempre.</p>
+      <div class="hero-actions">
+        <button class="btn-primary" id="hero-btn-carrito">🛒 Pedir por WhatsApp</button>
+        <a href="#mercado" class="btn-secondary">📋 Calcular mercado semanal</a>
+      </div>
+      <div class="hero-hours">⏰ Lun–Vie 8AM–6PM · Sáb 8AM–1PM</div>
+    </div>
+    <div class="hero-visual">
+      <div class="market-card">
+        <div class="market-card-icon">🧀</div>
+        <div class="market-card-label">Charcutería</div>
+      </div>
+      <div class="market-card market-card--mid">
+        <div class="market-card-icon">🫙</div>
+        <div class="market-card-label">Víveres</div>
+      </div>
+      <div class="market-card market-card--bot">
+        <div class="market-card-icon">🥤</div>
+        <div class="market-card-label">Bebidas</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TRUST STRIP ===== -->
+  <section class="trust-strip">
+    <div class="trust-item">
+      <span class="trust-icon">🤝</span>
+      <div>
+        <strong>Negocio familiar</strong>
+        <p>Atención directa, sin intermediarios</p>
+      </div>
+    </div>
+    <div class="trust-divider"></div>
+    <div class="trust-item">
+      <span class="trust-icon">📱</span>
+      <div>
+        <strong>Pedidos al instante</strong>
+        <p>Armamos tu pedido por WhatsApp</p>
+      </div>
+    </div>
+    <div class="trust-divider"></div>
+    <div class="trust-item">
+      <span class="trust-icon">💳</span>
+      <div>
+        <strong>Múltiples pagos</strong>
+        <p>Efectivo, Pago Móvil y Zelle</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MERCADO SEMANAL (interactive) ===== -->
+  <section class="mercado-section" id="mercado">
+    <div class="container">
+      <div class="section-eyebrow">✨ Herramienta gratuita</div>
+      <h2 class="section-title">¿Cuánto necesitas<br>esta semana?</h2>
+      <p class="section-sub">Dinos cuántas personas son en casa y te decimos cuánto comprar de cada cosa. Sin adivinanzas.</p>
+
+      <div class="mercado-widget">
+        <div class="mercado-inputs">
+          <div class="input-group">
+            <label for="adultos">👨‍👩‍👧 Adultos en casa</label>
+            <div class="counter">
+              <button class="counter-btn" data-target="adultos" data-action="minus">−</button>
+              <span class="counter-val" id="adultos">2</span>
+              <button class="counter-btn" data-target="adultos" data-action="plus">+</button>
+            </div>
+          </div>
+          <div class="input-group">
+            <label for="ninos">👧 Niños (menores de 12)</label>
+            <div class="counter">
+              <button class="counter-btn" data-target="ninos" data-action="minus">−</button>
+              <span class="counter-val" id="ninos">1</span>
+              <button class="counter-btn" data-target="ninos" data-action="plus">+</button>
+            </div>
+          </div>
+          <button class="btn-calcular" id="btn-calcular">Calcular mi lista 📋</button>
+        </div>
+
+        <div class="mercado-resultado" id="mercado-resultado">
+          <div class="resultado-header">
+            <span class="resultado-title">🛒 Tu lista para esta semana</span>
+            <span class="resultado-personas" id="resultado-personas"></span>
+          </div>
+          <div class="resultado-items" id="resultado-items"></div>
+          <div class="resultado-total">
+            <span>Total estimado</span>
+            <strong id="resultado-total-val"></strong>
+          </div>
+          <p class="resultado-nota">* Precios de referencia. Confirmar disponibilidad con el abasto.</p>
+          <button class="btn-enviar-lista" id="btn-enviar-lista">📲 Enviar lista por WhatsApp</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRODUCTOS ===== -->
+  <section class="productos-section" id="productos">
+    <div class="container">
+      <div class="section-eyebrow">Lo que encontrarás</div>
+      <h2 class="section-title">Nuestros productos</h2>
+      <div class="categorias-grid">
+
+        <div class="categoria-card">
+          <div class="cat-icon">🧀</div>
+          <h3>Charcutería</h3>
+          <ul>
+            <li>Queso blanco duro</li>
+            <li>Queso de mano</li>
+            <li>Jamón cocido</li>
+            <li>Mortadela</li>
+            <li>Salchichón</li>
+          </ul>
+          <button class="btn-cat" data-cat="Charcutería">Agregar al pedido →</button>
+        </div>
+
+        <div class="categoria-card">
+          <div class="cat-icon">🫙</div>
+          <h3>Víveres</h3>
+          <ul>
+            <li>Arroz / Harina PAN</li>
+            <li>Pasta / Azúcar</li>
+            <li>Caraotas / Lentejas</li>
+            <li>Aceite vegetal</li>
+            <li>Sal / Especias</li>
+          </ul>
+          <button class="btn-cat" data-cat="Víveres">Agregar al pedido →</button>
+        </div>
+
+        <div class="categoria-card">
+          <div class="cat-icon">🥤</div>
+          <h3>Bebidas</h3>
+          <ul>
+            <li>Refrescos (1.5L / 2L)</li>
+            <li>Jugo natural / envasado</li>
+            <li>Agua mineral</li>
+            <li>Malta / Cerveza</li>
+            <li>Leche UHT</li>
+          </ul>
+          <button class="btn-cat" data-cat="Bebidas">Agregar al pedido →</button>
+        </div>
+
+        <div class="categoria-card">
+          <div class="cat-icon">🥛</div>
+          <h3>Lácteos</h3>
+          <ul>
+            <li>Leche pasteurizada</li>
+            <li>Yogurt natural</li>
+            <li>Mantequilla</li>
+            <li>Crema de leche</li>
+            <li>Queso procesado</li>
+          </ul>
+          <button class="btn-cat" data-cat="Lácteos">Agregar al pedido →</button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== QUIÉNES SOMOS ===== -->
+  <section class="nosotros-section" id="nosotros">
+    <div class="container nosotros-grid">
+      <div class="nosotros-visual">
+        <div class="nosotros-big-emoji">🏪</div>
+        <div class="nosotros-tag">San Agustín del Sur</div>
+      </div>
+      <div class="nosotros-text">
+        <div class="section-eyebrow">Quiénes somos</div>
+        <h2 class="section-title-sm">Un negocio de barrio,<br>con trato de familia</h2>
+        <p>Abasto La Fortaleza es un negocio familiar ubicado en San Agustín del Sur, Caracas. Vendemos charcutería, víveres y bebidas para la comunidad de siempre.</p>
+        <p>Nuestro compromiso es sencillo: buen producto, precio justo y atención directa. Sin vueltas.</p>
+        <div class="nosotros-highlights">
+          <div class="highlight-item">
+            <span class="highlight-icon">🏘️</span>
+            <span>Parte del barrio</span>
+          </div>
+          <div class="highlight-item">
+            <span class="highlight-icon">🤙</span>
+            <span>Pedidos por WhatsApp</span>
+          </div>
+          <div class="highlight-item">
+            <span class="highlight-icon">✅</span>
+            <span>Producto de calidad</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACTO ===== -->
+  <section class="contacto-section" id="contacto">
+    <div class="container">
+      <div class="section-eyebrow">Encuéntranos</div>
+      <h2 class="section-title">Visítanos o escríbenos</h2>
+      <div class="contacto-grid">
+        <div class="contacto-info">
+          <div class="info-block">
+            <span class="info-icon">📍</span>
+            <div>
+              <strong>Dirección</strong>
+              <p>Av. 2 Las Flores, Casa 40<br>San Agustín del Sur, Caracas</p>
+            </div>
+          </div>
+          <div class="info-block">
+            <span class="info-icon">⏰</span>
+            <div>
+              <strong>Horario</strong>
+              <p>Lunes a viernes: 8:00 a.m. – 6:00 p.m.<br>Sábado: 8:00 a.m. – 1:00 p.m.</p>
+            </div>
+          </div>
+          <div class="info-block">
+            <span class="info-icon">📱</span>
+            <div>
+              <strong>WhatsApp</strong>
+              <p><a href="https://wa.me/584241270915" class="link-wa">+58 424-127-0915</a></p>
+            </div>
+          </div>
+          <div class="info-block">
+            <span class="info-icon">💳</span>
+            <div>
+              <strong>Métodos de pago</strong>
+              <div class="pagos">
+                <span class="pago-tag">💵 Efectivo</span>
+                <span class="pago-tag">📲 Pago Móvil</span>
+                <span class="pago-tag">💸 Zelle</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mapa-wrapper">
+          <iframe
+            src="https://maps.google.com/maps?q=San+Agustín+del+Sur,+Caracas,+Venezuela&output=embed&z=15"
+            width="100%"
+            height="320"
+            style="border:0;border-radius:12px;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Ubicación de Abasto La Fortaleza">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-logo">
+        <span>🏪</span> La Fortaleza
+      </div>
+      <p class="footer-desc">Tu abasto de confianza en San Agustín del Sur, Caracas.</p>
+      <div class="footer-pagos">
+        <span>Aceptamos:</span>
+        <span class="pago-tag pago-tag--dark">💵 Efectivo</span>
+        <span class="pago-tag pago-tag--dark">📲 Pago Móvil</span>
+        <span class="pago-tag pago-tag--dark">💸 Zelle</span>
+      </div>
+      <p class="footer-copy">© 2025 Abasto La Fortaleza · San Agustín del Sur, Caracas</p>
+    </div>
+  </footer>
+
+  <!-- ===== CARRITO DRAWER ===== -->
+  <div class="carrito-overlay" id="carrito-overlay"></div>
+  <aside class="carrito-drawer" id="carrito-drawer">
+    <div class="carrito-header">
+      <h3>🛒 Tu Pedido</h3>
+      <button class="carrito-cerrar" id="carrito-cerrar">✕</button>
+    </div>
+    <div class="carrito-body">
+      <div class="carrito-selector">
+        <label for="producto-select">Producto</label>
+        <select id="producto-select">
+          <optgroup label="🧀 Charcutería">
+            <option value="Queso blanco duro|3.50">Queso blanco duro — $3.50/kg</option>
+            <option value="Queso de mano|4.00">Queso de mano — $4.00/kg</option>
+            <option value="Jamón cocido|5.50">Jamón cocido — $5.50/kg</option>
+            <option value="Mortadela|4.50">Mortadela — $4.50/kg</option>
+            <option value="Salchichón|4.80">Salchichón — $4.80/kg</option>
+          </optgroup>
+          <optgroup label="🫙 Víveres">
+            <option value="Arroz|0.80">Arroz — $0.80/kg</option>
+            <option value="Harina PAN|0.90">Harina PAN — $0.90/kg</option>
+            <option value="Pasta|0.70">Pasta — $0.70/kg</option>
+            <option value="Caraotas negras|1.20">Caraotas negras — $1.20/kg</option>
+            <option value="Aceite vegetal|1.80">Aceite vegetal — $1.80/l</option>
+            <option value="Azúcar|0.90">Azúcar — $0.90/kg</option>
+          </optgroup>
+          <optgroup label="🥤 Bebidas">
+            <option value="Refresco 2L|1.20">Refresco 2L — $1.20/und</option>
+            <option value="Agua mineral 1.5L|0.80">Agua mineral 1.5L — $0.80/und</option>
+            <option value="Jugo envasado|0.90">Jugo envasado — $0.90/und</option>
+            <option value="Leche UHT 1L|1.30">Leche UHT 1L — $1.30/und</option>
+          </optgroup>
+          <optgroup label="🥛 Lácteos">
+            <option value="Mantequilla|2.50">Mantequilla — $2.50/und</option>
+            <option value="Yogurt natural|1.10">Yogurt natural — $1.10/und</option>
+            <option value="Crema de leche|1.80">Crema de leche — $1.80/und</option>
+          </optgroup>
+        </select>
+        <label for="cantidad-input">Cantidad / Peso</label>
+        <div class="cantidad-row">
+          <input type="number" id="cantidad-input" min="0.1" step="0.1" value="1" />
+          <span class="cantidad-unit" id="cantidad-unit">kg</span>
+        </div>
+        <button class="btn-agregar" id="btn-agregar">+ Agregar</button>
+      </div>
+      <div class="carrito-items" id="carrito-items">
+        <p class="carrito-vacio">Tu pedido está vacío. Agrega productos arriba.</p>
+      </div>
+    </div>
+    <div class="carrito-footer">
+      <div class="carrito-total">
+        <span>Total estimado</span>
+        <strong id="carrito-total">$0.00</strong>
+      </div>
+      <p class="carrito-nota">* Precios de referencia. Confirmar con el abasto.</p>
+      <button class="btn-whatsapp" id="btn-whatsapp" disabled>
+        📲 Enviar pedido por WhatsApp
+      </button>
+    </div>
+  </aside>
+
+  <!-- ===== WHATSAPP FLOTANTE ===== -->
+  <a class="wa-float" href="https://wa.me/584241270915?text=Hola%2C%20me%20comunico%20desde%20su%20sitio%20web.%20¿Me%20pueden%20ayudar%3F" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <span>💬</span>
+  </a>
+
+  <script src="app.js"></script>
+</body>
+</html>
